@@ -679,7 +679,7 @@ static struct usb_serial_driver ch340_device = {
 	.tiocmiwait        = usb_serial_generic_tiocmiwait,
 	.read_int_callback = ch340_read_int_callback,
 	.port_probe        = ch340_port_probe,
-	.port_remove       = ch340_port_remove,
+	.port_remove       = ( void (*)(struct usb_serial_port *)) ch340_port_remove,
 	.reset_resume      = ch340_reset_resume,
 };
 
